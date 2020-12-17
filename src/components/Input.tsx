@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import DatePicker from "react-date-picker";
 import TimePicker from "react-time-picker";
+import TextareaAutosize from "react-textarea-autosize";
 import styles from "./Input.module.css";
 
 const InputConnected = () => {
@@ -36,11 +37,9 @@ export const Input = ({
 }: Props) => {
   return (
     <div className={styles.content}>
-      <input
-        type="text"
-        className={styles.textBox}
-        placeholder="Любой текст..."
-      />
+      <div className={styles.textBox} placeholder="Любой текст...">
+        <TextareaAutosize />
+      </div>
 
       <div className={styles.dateBox} placeholder="Дата">
         <DatePicker onChange={onChangeDate} value={dateValue} />
