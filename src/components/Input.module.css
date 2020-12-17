@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+.content {
+  position: relative;
+  width: 360px;
+  height: 640px;
+}
+
+.textBox {
+  position: absolute;
+  width: 288px;
+  height: 181px;
+  left: 36px;
+  top: 36px;
+  border: 4px solid #000000;
+  padding: 16px;
+}
+
+::placeholder {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: #a7a7a7;
+}
+
+.dateBox {
+  position: absolute;
+  width: 288px;
+  height: 60px;
+  left: 36px;
+  top: 233px;
+
+  border: 4px solid #000000;
+  padding: 16px;
+}
+
+.timeBox {
+  position: absolute;
+  width: 288px;
+  height: 60px;
+  left: 36px;
+  top: 309px;
+
+  border: 4px solid #000000;
+  padding: 16px;
+}
+
+.create {
+  position: absolute;
+  width: 288px;
+  height: 58px;
+  left: 36px;
+  top: 393px;
+
+  background: #b8b8b8;
+  border: 4px solid #000000;
+}
+
+.create:hover {
+  position: absolute;
+  width: 288px;
+  height: 58px;
+  left: 36px;
+  top: 393px;
+
+  background: #000000;
+  border: 4px solid #000000;
+}
+
+.buttonCreateName {
+  width: 141px;
+  height: 42px;
+  left: 109px;
+  top: 401px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 42px;
+
+  color: #ffffff;
+}
