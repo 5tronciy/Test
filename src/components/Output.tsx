@@ -1,19 +1,20 @@
 import React from "react";
+import { DeltaTimeItem } from "./deltaTimeItem";
 import styles from "./Output.module.css";
 
 const OutputConnected = () => {
-  return <Output />;
+  return <Output deltaTime={["7 лет", "10 месяцев", "2 дня"]} />;
 };
 
-export const Output = () => {
+export const Output = ({ deltaTime }: any) => {
   return (
     <div className={styles.content}>
       <div className={styles.text}>Любой текст</div>
-      <div className={styles.deltaTime}>
-        <ul>
-          <li>26 лет</li>
-          <li>7 месяцев</li>
-          <li>13 дней</li>
+      <div className={styles.deltaTimeWrapper}>
+        <ul className={styles.deltaTime}>
+          {deltaTime.map((deltaTimeItem: string) => (
+            <DeltaTimeItem deltaTimeItem={deltaTimeItem} key={deltaTimeItem} />
+          ))}
         </ul>
       </div>
     </div>

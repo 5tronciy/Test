@@ -26,7 +26,7 @@
   color: #000000;
 }
 
-.deltaTime {
+.deltaTimeWrapper {
   position: absolute;
   width: 296px;
   height: 252px;
@@ -40,4 +40,8 @@
   line-height: 42px;
 
   color: #000000;
+}
+
+.deltaTime {
+  padding-left: 0;
 }
