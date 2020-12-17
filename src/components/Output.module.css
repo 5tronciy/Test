@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+.content {
+  position: relative;
+  width: 360px;
+  height: 640px;
+
+  background: #ffffff;
+}
+
+.text {
+  position: absolute;
+  width: 296px;
+  height: 42px;
+  left: 32px;
+  top: 48px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 42px;
+
+  color: #000000;
+}
+
+.deltaTime {
+  position: absolute;
+  width: 296px;
+  height: 252px;
+  left: 32px;
+  top: 194px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 42px;
+
+  color: #000000;
+}
