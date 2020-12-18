@@ -3,6 +3,7 @@ import DatePicker from "react-date-picker";
 import TimePicker from "react-time-picker";
 import TextareaAutosize from "react-textarea-autosize";
 import styles from "./Input.module.css";
+import { Link } from "react-router-dom";
 
 const InputConnected = () => {
   const onCreate = () => {};
@@ -48,7 +49,9 @@ export const Input = ({
         <TimePicker onChange={onChangeTime} value={timeValue} />
       </div>
       <button type="button" className={styles.create} onClick={onCreate}>
-        <span className={styles.buttonCreateName}>Создать</span>
+        <Link to="/params">
+          <span className={styles.buttonCreateName}>Создать</span>
+        </Link>
       </button>
     </div>
   );

@@ -1,12 +1,16 @@
 import React from "react";
 import { DeltaTimeItem } from "./deltaTimeItem";
 import styles from "./Output.module.css";
+import { useParams } from "react-router";
 
 const OutputConnected = () => {
-  return <Output deltaTime={["7 лет", "10 месяцев", "2 дня"]} />;
+  const params: any = useParams();
+  return (
+    <Output deltaTime={["7 лет", "10 месяцев", "2 дня"]} params={params} />
+  );
 };
 
-export const Output = ({ deltaTime }: any) => {
+export const Output = ({ deltaTime, params }: any) => {
   return (
     <div className={styles.content}>
       <div className={styles.text}>Любой текст</div>
