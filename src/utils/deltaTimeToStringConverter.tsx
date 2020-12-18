@@ -1,5 +1,5 @@
 export function deltaTimeToStringConverter(deltaTime: number[]) {
-  const deltaTimeStrings: any = [];
+  const deltaTimeStrings: string[] = [];
   deltaTime.forEach((item, index) => {
     switch (index) {
       case 0:

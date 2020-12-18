@@ -6,7 +6,7 @@ import { deltaTimeToStringConverter } from "../utils/deltaTimeToStringConverter"
 
 const OutputConnected = () => {
   const { params }: any = useParams();
-  const appData: any = JSON.parse(params);
+  const appData: AppData = JSON.parse(params);
   const today = new Date();
   const dateFromInput = new Date(appData.date);
 
@@ -19,12 +19,23 @@ const OutputConnected = () => {
     today.getSeconds(),
   ];
 
-  const deltaTimeStrings: any = deltaTimeToStringConverter(deltaTime);
+  const deltaTimeStrings: string[] = deltaTimeToStringConverter(deltaTime);
 
   return <Output deltaTime={deltaTimeStrings} appData={appData} />;
 };
 
-export const Output = ({ deltaTime, appData }: any) => {
+interface AppData {
+  text: string;
+  date: string;
+  time: string;
+}
+
+interface Props {
+  deltaTime: string[];
+  appData: AppData;
+}
+
+export const Output = ({ deltaTime, appData }: Props) => {
   return (
     <div className={styles.content}>
       <div className={styles.text}>{appData.text}</div>
