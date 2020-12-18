@@ -14,7 +14,6 @@ const InputConnected = () => {
     date: dateValue,
     time: timeValue,
   });
-  console.log(params);
 
   const onChangeText = (event: any) => {
     setText(event.target.value);
@@ -24,6 +23,7 @@ const InputConnected = () => {
     setDate(event);
   };
   const onChangeTime = (event: any) => {
+    console.log(event);
     setTime(event);
   };
   const onCreate = () => {};

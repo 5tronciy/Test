@@ -2,19 +2,32 @@ import React from "react";
 import { DeltaTimeItem } from "./deltaTimeItem";
 import styles from "./Output.module.css";
 import { useParams } from "react-router";
+import { deltaTimeToStringConverter } from "../utils/deltaTimeToStringConverter";
 
 const OutputConnected = () => {
   const { params }: any = useParams();
+  const appData: any = JSON.parse(params);
+  const today = new Date();
+  const dateFromInput = new Date(appData.date);
 
-  return (
-    <Output deltaTime={["7 лет", "10 месяцев", "2 дня"]} params={params} />
-  );
+  const deltaTime = [
+    today.getFullYear() - dateFromInput.getFullYear(),
+    today.getMonth() - dateFromInput.getMonth(),
+    today.getDate() - dateFromInput.getDate(),
+    today.getHours() - Number(appData.time.slice(0, 2)),
+    today.getMinutes() - Number(appData.time.slice(3, 5)),
+    today.getSeconds(),
+  ];
+
+  const deltaTimeStrings: any = deltaTimeToStringConverter(deltaTime);
+
+  return <Output deltaTime={deltaTimeStrings} appData={appData} />;
 };
 
-export const Output = ({ deltaTime, params }: any) => {
+export const Output = ({ deltaTime, appData }: any) => {
   return (
     <div className={styles.content}>
-      <div className={styles.text}>Любой текст</div>
+      <div className={styles.text}>{appData.text}</div>
       <div className={styles.deltaTimeWrapper}>
         <ul className={styles.deltaTime}>
           {deltaTime.map((deltaTimeItem: string) => (
