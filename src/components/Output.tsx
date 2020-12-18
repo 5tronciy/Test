@@ -4,7 +4,8 @@ import styles from "./Output.module.css";
 import { useParams } from "react-router";
 
 const OutputConnected = () => {
-  const params: any = useParams();
+  const { params }: any = useParams();
+
   return (
     <Output deltaTime={["7 лет", "10 месяцев", "2 дня"]} params={params} />
   );

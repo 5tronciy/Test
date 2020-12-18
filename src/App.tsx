@@ -10,8 +10,8 @@ const RouterConnected = () => {
 export const App = () => {
   return (
     <Router>
-      <Input />
       <Switch>
+        <Route path="/index" children={<Input />} />
         <Route path="/:params" children={<Output />} />
       </Switch>
     </Router>
