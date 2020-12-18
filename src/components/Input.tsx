@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import DatePicker from "react-date-picker";
-import TimePicker from "react-time-picker";
+import TimePicker, { TimePickerValue } from "react-time-picker";
 import TextareaAutosize from "react-textarea-autosize";
 import styles from "./Input.module.css";
 import { Link } from "react-router-dom";
 
 const InputConnected = () => {
-  const [dateValue, setDate] = useState(undefined);
-  const [timeValue, setTime] = useState(undefined);
+  const [dateValue, setDate] = useState(new Date());
+  const [timeValue, setTime] = useState('00:00');
   const [textValue, setText] = useState("");
   const params = JSON.stringify({
     text: textValue,
@@ -20,11 +20,10 @@ const InputConnected = () => {
   };
 
   const onChangeDate = (event: any) => {
-    setDate(event);
+   setDate(event);
   };
-  const onChangeTime = (event: any) => {
-    console.log(event);
-    setTime(event);
+  const onChangeTime = (event: TimePickerValue) => {
+    setTime(event.toString());
   };
   const onCreate = () => {};
 
@@ -42,13 +41,13 @@ const InputConnected = () => {
 };
 
 interface Props {
-  onCreate: any;
-  onChangeText: any;
-  onChangeDate: (event: any) => void;
+  onCreate: ()=>void;
+  onChangeText: (event:any)=>void;
+  onChangeDate: (event: Date|Date[]) => void;
   dateValue: Date | undefined;
-  onChangeTime: (event: any) => void;
-  timeValue: any;
-  params: any;
+  onChangeTime: (event: TimePickerValue) => void;
+  timeValue: TimePickerValue;
+  params: string;
 }
 
 export const Input = ({

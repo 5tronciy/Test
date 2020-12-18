@@ -4,12 +4,15 @@ import styles from "./Output.module.css";
 import { useParams } from "react-router";
 import { deltaTimeToStringConverter } from "../utils/deltaTimeToStringConverter";
 
+interface Params {
+  params:string
+}
+
 const OutputConnected = () => {
-  const { params }: any = useParams();
+  const { params }: Params = useParams();
   const appData: AppData = JSON.parse(params);
   const today = new Date();
   const dateFromInput = new Date(appData.date);
-
   const deltaTime = [
     today.getFullYear() - dateFromInput.getFullYear(),
     today.getMonth() - dateFromInput.getMonth(),
