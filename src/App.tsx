@@ -11,7 +11,7 @@ export const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/index" children={<Input />} />
+        <Route path="/Test" children={<Input />} />
         <Route path="/:params" children={<Output />} />
       </Switch>
     </Router>
