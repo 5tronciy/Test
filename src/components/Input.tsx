@@ -71,11 +71,11 @@ export const Input = ({
       <div className={styles.timeBox} placeholder="Время">
         <TimePicker onChange={onChangeTime} value={timeValue} />
       </div>
-      <button type="button" className={styles.create} onClick={onCreate}>
+      <div className={styles.create} onClick={onCreate}>
         <Link to={params}>
           <span className={styles.buttonCreateName}>Создать</span>
         </Link>
-      </button>
+      </div>
     </div>
   );
 };
