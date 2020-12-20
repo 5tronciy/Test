@@ -2,14 +2,16 @@
   box-sizing: border-box;
 }
 .content {
-  width: 360px;
+  width: 100%;
+  padding: 36px;
 }
 
 .textBox {
+  display: flex;
   height: 181px;
   border: 4px solid #000000;
-  padding: 16px;
-  margin: 16px;
+  padding: 12px;
+  margin-bottom: 16px;
 }
 
 ::placeholder {
@@ -23,27 +25,39 @@
 }
 
 .dateBox {
+  display: flex;
+  align-items: center;
+  height: 60px;
   border: 4px solid #000000;
   padding: 16px;
-  margin: 16px;
+  margin-bottom: 16px;
 }
 
 .timeBox {
+  display: flex;
+  align-items: center;
+  height: 60px;
   border: 4px solid #000000;
   padding: 16px;
-  margin: 16px;
+  margin-bottom: 24px;
 }
 
 .create {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 58px;
   background: #b8b8b8;
   border: 4px solid #000000;
-  padding: 16px;
-  margin: 16px;
 }
 
 .create a {
   text-decoration: none;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 42px;
 }
 
 .create:hover {

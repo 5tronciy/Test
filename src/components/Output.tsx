@@ -39,9 +39,9 @@ interface Props {
 }
 
 export const Output = ({ deltaTime, appData }: Props) => {
-  return (
+  return (<>
     <div className={styles.content}>
-      <div className={styles.text}>{appData.text}</div>
+      
       <div className={styles.deltaTimeWrapper}>
         <ul className={styles.deltaTime}>
           {deltaTime.map((deltaTimeItem: string) => (
@@ -50,6 +50,8 @@ export const Output = ({ deltaTime, appData }: Props) => {
         </ul>
       </div>
     </div>
+    <div className={styles.text}>{appData.text}</div>
+    </>
   );
 };
 

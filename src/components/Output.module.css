@@ -3,19 +3,22 @@
 }
 
 .content {
-  position: relative;
-  width: 360px;
-  height: 640px;
-
-  background: #ffffff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 32px;
 }
 
 .text {
-  position: absolute;
-  width: 296px;
-  height: 42px;
-  left: 32px;
+  overflow:hidden;
+  position: fixed;
+  padding-right: 32px;
   top: 48px;
+  left: 32px;
+  max-width: 100vh;
+  max-height: 19%;
+  word-break: break-all;
 
   font-family: Roboto;
   font-style: normal;
@@ -27,12 +30,6 @@
 }
 
 .deltaTimeWrapper {
-  position: absolute;
-  width: 296px;
-  height: 252px;
-  left: 32px;
-  top: 194px;
-
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
