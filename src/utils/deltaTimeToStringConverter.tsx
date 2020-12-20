@@ -64,9 +64,9 @@ export function deltaTimeToStringConverter(deltaTime: number[]) {
     }
   });
 
-  deltaTimeStrings.forEach((item: string, index: number) => {
-    item[0] === "0" ? delete deltaTimeStrings[index] : console.log(item);
-  });
+  // deltaTimeStrings.forEach((item: string, index: number) => {
+  //   item[0] === "0" ? delete deltaTimeStrings[index] : ;
+  // });
 
   return deltaTimeStrings;
 }
