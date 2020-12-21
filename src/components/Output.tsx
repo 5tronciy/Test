@@ -5,21 +5,22 @@ import { useParams } from "react-router";
 import { deltaTimeToStringConverter } from "../utils/deltaTimeToStringConverter";
 
 interface Params {
-  params:string
+  params: string;
 }
 
 const OutputConnected = () => {
   const { params }: Params = useParams();
   const appData: AppData = JSON.parse(params);
   const today = new Date();
-  const dateFromInput = new Date(appData.date);
+  const todayTimeStamp = today.getTime();
+  const difference = Math.abs(Number(appData.date) - todayTimeStamp);
   const deltaTime = [
-    today.getFullYear() - dateFromInput.getFullYear(),
-    today.getMonth() - dateFromInput.getMonth(),
-    today.getDate() - dateFromInput.getDate(),
-    today.getHours() - Number(appData.time.slice(0, 2)),
-    today.getMinutes() - Number(appData.time.slice(3, 5)),
-    today.getSeconds(),
+    Math.floor(difference / (1000 * 3600 * 24 * 365.25)),
+    Math.floor(difference / (1000 * 3600 * 24 * 12)) % 30,
+    Math.floor(difference / (1000 * 3600 * 24)) % 365,
+    Math.floor(difference / (1000 * 3600)) % 24,
+    Math.floor(difference / (1000 * 60)) % 60,
+    Math.floor(difference / 1000) % 60,
   ];
 
   const deltaTimeStrings: string[] = deltaTimeToStringConverter(deltaTime);
@@ -29,8 +30,7 @@ const OutputConnected = () => {
 
 interface AppData {
   text: string;
-  date: string;
-  time: string;
+  date: Number;
 }
 
 interface Props {
@@ -39,18 +39,21 @@ interface Props {
 }
 
 export const Output = ({ deltaTime, appData }: Props) => {
-  return (<>
-    <div className={styles.content}>
-      
-      <div className={styles.deltaTimeWrapper}>
-        <ul className={styles.deltaTime}>
-          {deltaTime.map((deltaTimeItem: string) => (
-            <DeltaTimeItem deltaTimeItem={deltaTimeItem} key={deltaTimeItem} />
-          ))}
-        </ul>
+  return (
+    <>
+      <div className={styles.content}>
+        <div className={styles.deltaTimeWrapper}>
+          <ul className={styles.deltaTime}>
+            {deltaTime.map((deltaTimeItem: string) => (
+              <DeltaTimeItem
+                deltaTimeItem={deltaTimeItem}
+                key={deltaTimeItem}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
-    <div className={styles.text}>{appData.text}</div>
+      <div className={styles.text}>{appData.text}</div>
     </>
   );
 };

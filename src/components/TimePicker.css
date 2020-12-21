@@ -18,10 +18,9 @@
   display: flex;
   flex-grow: 1;
   flex-shrink: 0;
-  border: thin solid gray;
 }
 .react-time-picker__inputGroup {
-  min-width: calc((4px * 3) +  0.54em * 6  +  0.217em * 2);
+  min-width: calc((4px * 3) + 0.54em * 6 + 0.217em * 2);
   flex-grow: 1;
   padding: 0 2px;
   box-sizing: content-box;
@@ -51,7 +50,7 @@
 }
 .react-time-picker__inputGroup__input--hasLeadingZero {
   margin-left: -0.54em;
-  padding-left: calc(1px +  0.54em);
+  padding-left: calc(1px + 0.54em);
 }
 .react-time-picker__inputGroup__amPm {
   font: inherit;

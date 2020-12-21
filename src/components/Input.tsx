@@ -11,16 +11,16 @@ const InputConnected = () => {
   const [dateValue, setDate] = useState(new Date());
   const [timeValue, setTime] = useState("00:00");
   const [textValue, setText] = useState("");
+
+  var time = new Date(dateValue);
+
   const params = JSON.stringify({
     text: textValue,
-    date: dateValue,
-    time: timeValue,
+    date:
+      time.getTime() +
+      Number(timeValue.slice(0, 2)) * 360000 +
+      Number(timeValue.slice(3, 5)) * 60000,
   });
-  var time = new Date(dateValue);
-  const timeMs = time.getTime();
-  console.log(timeMs);
-  var time2 = new Date(timeMs);
-  console.log(time2);
 
   const onChangeText = (event: any) => {
     setText(event.target.value);
@@ -32,11 +32,9 @@ const InputConnected = () => {
   const onChangeTime = (event: TimePickerValue) => {
     setTime(event.toString());
   };
-  const onCreate = () => {};
 
   return (
     <Input
-      onCreate={onCreate}
       onChangeText={onChangeText}
       onChangeDate={onChangeDate}
       dateValue={dateValue}
@@ -48,7 +46,6 @@ const InputConnected = () => {
 };
 
 interface Props {
-  onCreate: () => void;
   onChangeText: (event: any) => void;
   onChangeDate: (event: Date | Date[]) => void;
   dateValue: Date | undefined;
@@ -58,7 +55,6 @@ interface Props {
 }
 
 export const Input = ({
-  onCreate,
   onChangeText,
   onChangeDate,
   dateValue,
@@ -76,20 +72,27 @@ export const Input = ({
         <DatePicker
           onChange={onChangeDate}
           value={dateValue}
-          format="dd.MMMM.yyyy"
+          format="dd MMMM yyyy"
           isOpen={false}
           clearIcon={null}
           required={true}
         />
       </div>
       <div className={styles.timeBox} placeholder="Время">
-        <TimePicker onChange={onChangeTime} value={timeValue} />
+        <TimePicker
+          onChange={onChangeTime}
+          value={timeValue}
+          format={"HH:mm"}
+          disableClock={true}
+          isOpen={false}
+          required
+        />
       </div>
-      <div className={styles.create} onClick={onCreate}>
-        <Link to={params}>
+      <Link to={params}>
+        <div className={styles.create}>
           <span className={styles.buttonCreateName}>Создать</span>
-        </Link>
-      </div>
+        </div>
+      </Link>
     </div>
   );
 };
