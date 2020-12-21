@@ -11,12 +11,12 @@
 }
 
 .text {
-  overflow:hidden;
+  overflow: hidden;
   position: fixed;
   padding-right: 32px;
   top: 48px;
   left: 32px;
-  max-width: 100vh;
+  max-width: 100%;
   max-height: 19%;
   word-break: break-all;
 
