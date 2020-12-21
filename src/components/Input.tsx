@@ -65,7 +65,11 @@ export const Input = ({
   return (
     <div className={styles.content}>
       <div className={styles.textBox} placeholder="Любой текст...">
-        <TextareaAutosize onChange={onChangeText} />
+        <TextareaAutosize
+          maxRows={5}
+          onChange={onChangeText}
+          placeholder="Любой текст..."
+        />
       </div>
 
       <div className={styles.dateBox} placeholder="Дата">
