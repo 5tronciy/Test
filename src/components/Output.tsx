@@ -10,10 +10,12 @@ interface Params {
 
 const OutputConnected = () => {
   const { params }: Params = useParams();
+  console.log(params);
   const appData: AppData = JSON.parse(params);
   const today = new Date();
   const todayTimeStamp = today.getTime();
   const difference = Math.abs(Number(appData.date) - todayTimeStamp);
+  console.log(appData.date, todayTimeStamp, difference);
   const deltaTime = [
     Math.floor(difference / (1000 * 3600 * 24 * 365.25)),
     Math.floor(difference / (1000 * 3600 * 24 * 12)) % 30,

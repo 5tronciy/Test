@@ -14,13 +14,15 @@ const InputConnected = () => {
 
   var time = new Date(dateValue);
 
-  const params = JSON.stringify({
-    text: textValue,
-    date:
-      time.getTime() +
-      Number(timeValue.slice(0, 2)) * 360000 +
-      Number(timeValue.slice(3, 5)) * 60000,
-  });
+  const params =
+    "Test/" +
+    JSON.stringify({
+      text: textValue,
+      date:
+        time.getTime() +
+        Number(timeValue.slice(0, 2)) * 360000 +
+        Number(timeValue.slice(3, 5)) * 60000,
+    });
 
   const onChangeText = (event: any) => {
     setText(event.target.value);
