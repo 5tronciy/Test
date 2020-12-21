@@ -4,6 +4,9 @@ import styles from "./Output.module.css";
 import { useParams } from "react-router";
 import { deltaTimeToStringConverter } from "../utils/deltaTimeToStringConverter";
 
+var moment = require("moment");
+require("moment-precise-range-plugin");
+
 interface Params {
   params: string;
 }
@@ -12,15 +15,15 @@ const OutputConnected = () => {
   const { params }: Params = useParams();
   const appData: AppData = JSON.parse(params);
   const today = new Date();
-  const todayTimeStamp = today.getTime();
-  const difference = Math.abs(Number(appData.date) - todayTimeStamp);
+  var difference = moment.preciseDiff(today, appData.date, true);
+
   const deltaTime = [
-    Math.floor(difference / (1000 * 3600 * 24 * 365.25)),
-    Math.floor(difference / (1000 * 3600 * 24 * 12)) % 30,
-    Math.floor(difference / (1000 * 3600 * 24)) % 365,
-    Math.floor(difference / (1000 * 3600)) % 24,
-    Math.floor(difference / (1000 * 60)) % 60,
-    Math.floor(difference / 1000) % 60,
+    difference.years,
+    difference.months,
+    difference.days,
+    difference.hours,
+    difference.minutes,
+    difference.seconds,
   ];
 
   const deltaTimeStrings: string[] = deltaTimeToStringConverter(deltaTime);
