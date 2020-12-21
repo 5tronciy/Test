@@ -12,17 +12,15 @@ const InputConnected = () => {
   const [timeValue, setTime] = useState("00:00");
   const [textValue, setText] = useState("");
 
-  var time = new Date(dateValue);
+  const time = new Date(dateValue);
 
-  const params =
-    "Test/" +
-    JSON.stringify({
-      text: textValue,
-      date:
-        time.getTime() +
-        Number(timeValue.slice(0, 2)) * 360000 +
-        Number(timeValue.slice(3, 5)) * 60000,
-    });
+  const params = JSON.stringify({
+    text: textValue,
+    date:
+      time.getTime() +
+      Number(timeValue.slice(0, 2)) * 360000 +
+      Number(timeValue.slice(3, 5)) * 60000,
+  });
 
   const onChangeText = (event: any) => {
     setText(event.target.value);
