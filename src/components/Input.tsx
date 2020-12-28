@@ -23,11 +23,11 @@ const InputConnected = () => {
   });
 
   const onChangeText = (event: any) => {
-    setText(event.target.value);
+    setText(event.target.value); //event.type=change
   };
 
   const onChangeDate = (event: any) => {
-    setDate(event);
+    setDate(event); //event.type=undefined
   };
   const onChangeTime = (event: TimePickerValue) => {
     setTime(event.toString());
@@ -64,7 +64,7 @@ export const Input = ({
 }: Props) => {
   return (
     <div className={styles.content}>
-      <div className={styles.textBox} placeholder="Любой текст...">
+      <div className={styles.textBox}>
         <TextareaAutosize
           maxRows={5}
           onChange={onChangeText}
@@ -72,7 +72,7 @@ export const Input = ({
         />
       </div>
 
-      <div className={styles.dateBox} placeholder="Дата">
+      <div className={styles.dateBox}>
         <DatePicker
           onChange={onChangeDate}
           value={dateValue}
@@ -82,7 +82,7 @@ export const Input = ({
           required={true}
         />
       </div>
-      <div className={styles.timeBox} placeholder="Время">
+      <div className={styles.timeBox}>
         <TimePicker
           onChange={onChangeTime}
           value={timeValue}
